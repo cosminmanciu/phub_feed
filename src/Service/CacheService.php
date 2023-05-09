@@ -66,7 +66,6 @@ class CacheService implements CacheServiceInterface
 
             $data = file_get_contents($imageUrl);
 
-          //  header('Content-type: image/jpg');
 
             return  base64_encode($data);
         } catch (\Throwable $exception) {
