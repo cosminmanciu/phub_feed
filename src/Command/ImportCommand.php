@@ -11,7 +11,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 // the name of the command is what users type after "php bin/console"
-#[AsCommand(name: 'app:showcase-import')]
+#[AsCommand(name: 'app:feed-import')]
 class ImportCommand extends Command
 {
     public ImageImportServiceInterface $importService;
