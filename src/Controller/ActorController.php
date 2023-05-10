@@ -3,14 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Actor;
-use App\Entity\Movie;
 use App\Service\CacheServiceInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use function Symfony\Component\DependencyInjection\Loader\Configurator\iterator;
 
 class ActorController extends AbstractController
 {

@@ -43,10 +43,10 @@ class CacheService implements CacheServiceInterface
                 $cacheItem->set($imageData);
 
                 try {
+                    $cache->save($cacheItem);
+                } catch (\Throwable $exception) {
+                    return null;
 
-                  $cache->save($cacheItem);
-                }catch (\Throwable $exception) {
-                    dd($exception->getMessage());
                 }
 
             }
@@ -58,7 +58,7 @@ class CacheService implements CacheServiceInterface
 
     /**
      * @param $imageUrl
-     * @return bool|null|string
+     * @return string|null
      */
     public function getImage($imageUrl): ?string
     {
@@ -67,7 +67,7 @@ class CacheService implements CacheServiceInterface
             $data = file_get_contents($imageUrl);
 
 
-            return  base64_encode($data);
+            return base64_encode($data);
         } catch (\Throwable $exception) {
 
             return null;

@@ -9,6 +9,9 @@ class ImageImportService implements ImageImportServiceInterface
     /** @var ActorBuilderInterface */
     private $movieBuilder;
 
+    /**
+     * @param ActorBuilderInterface $movieBuilder
+     */
     public function __construct(
 
         ActorBuilderInterface $movieBuilder
@@ -17,6 +20,11 @@ class ImageImportService implements ImageImportServiceInterface
         $this->movieBuilder = $movieBuilder;
     }
 
+    /**
+     * @param string $source
+     * @param int $batch
+     * @return void
+     */
     public function import(string $source, int $batch = 100): void
     {
 
@@ -25,21 +33,9 @@ class ImageImportService implements ImageImportServiceInterface
 
         $data = $data['items'];
 
-
-        //$batches = array_chunk($data, $batch);
         foreach ($data as  $item) {
             $this->movieBuilder->build($item);
         }
-
-//        foreach ($batches as $batch) {
-//
-//            foreach ($batch as $data) {
-//                $this->movieBuilder->build($data);
-//            }
-//
-//
-//        }
-
 
     }
 

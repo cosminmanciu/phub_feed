@@ -3,7 +3,7 @@
 // src/Command/CreateUserCommand.php
 namespace App\Command;
 
-use App\Service\ImageImportService;
+
 use App\Service\ImageImportServiceInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -14,18 +14,28 @@ use Symfony\Component\Console\Output\OutputInterface;
 #[AsCommand(name: 'app:feed-import')]
 class ImportCommand extends Command
 {
+    /**
+     * @var ImageImportServiceInterface
+     */
     public ImageImportServiceInterface $importService;
 
+    /**
+     * @param ImageImportServiceInterface $importService
+     */
     public function __construct(ImageImportServiceInterface $importService)
     {
         $this->importService =  $importService;
         parent::__construct();
     }
 
-
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int
+     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        echo('Starting import command ---->------>: ');
+        echo('Starting import command ---->------> : ');
         $this->importService->import('https://www.pornhub.com/files/json_feed_pornstars.json', 10);
         return Command::SUCCESS;
 
