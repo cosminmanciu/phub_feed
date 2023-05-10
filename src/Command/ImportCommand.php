@@ -36,7 +36,7 @@ class ImportCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         echo('Starting import command ---->------> : ');
-        $this->importService->import('https://www.pornhub.com/files/json_feed_pornstars.json', 10);
+        $this->importService->import('https://www.pornhub.com/files/json_feed_pornstars.json');
         return Command::SUCCESS;
 
 

@@ -25,7 +25,7 @@ class ImageImportService implements ImageImportServiceInterface
      * @param int $batch
      * @return void
      */
-    public function import(string $source, int $batch = 100): void
+    public function import(string $source): void
     {
 
         $json = file_get_contents($source);
